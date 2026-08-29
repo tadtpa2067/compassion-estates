@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Request a compassionate consultation with Compassion Estates for estate sales, downsizing, and liquidation support in Cumming, GA."
+    />
+    <title>Contact & Consultation | Compassion Estates</title>
+    <link rel="icon" type="image/svg+xml" href="public/logo-mark.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Compassion Estates home page">
+          <img src="public/logo-mark.svg" alt="Compassion Estates logo" />
+          <span><strong>Compassion</strong> Estates</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          Menu
+        </button>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="sales.html">Upcoming Sales</a>
+          <a href="contact.html" class="active">Contact</a>
+          <a class="btn btn-primary" href="contact.html">Schedule a Consultation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero compact">
+        <div class="container narrow">
+          <p class="eyebrow">Let’s talk</p>
+          <h1>Request a consultation for your estate needs.</h1>
+          <p>
+            Whether you are preparing for a move, handling a family transition, or seeking a trusted sales partner, we are here to help.
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact-layout">
+        <div class="container contact-grid">
+          <div class="contact-panel">
+            <p class="eyebrow accent">Get in touch</p>
+            <h2>Tell us about your situation.</h2>
+            <form id="contact-form" novalidate>
+              <div class="form-row">
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Your full name" />
+                </label>
+                <label>
+                  Phone
+                  <input type="tel" name="phone" placeholder="(404) 245-9437" />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Email
+                  <input type="email" name="email" placeholder="your@email.com" />
+                </label>
+                <label>
+                  Location
+                  <input type="text" name="location" placeholder="Cumming, GA" />
+                </label>
+              </div>
+
+              <label>
+                Estimated Timeline
+                <input type="text" name="timeline" placeholder="e.g. Within 2 weeks" />
+              </label>
+
+              <label>
+                Estate Needs
+                <textarea name="description" rows="5" placeholder="Please share a brief description of the estate, items, or services needed."></textarea>
+              </label>
+
+              <button type="submit" class="btn btn-primary btn-wide">Request a Consultation</button>
+              <p class="form-message" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <aside class="info-panel contact-details">
+            <p class="eyebrow accent">Direct contact</p>
+            <h3>Compassion Estates</h3>
+            <ul class="detail-list">
+              <li><strong>Phone:</strong> <a href="tel:4042459437">(404) 245-9437</a></li>
+              <li><strong>Service Area:</strong> Cumming, GA 30041</li>
+              <li><strong>Hours:</strong> Monday–Saturday, 9:00 AM–6:00 PM</li>
+            </ul>
+
+            <div class="mini-card">
+              <h4>Need a prompt response?</h4>
+              <p>For urgent downsizing, relocation, or family transition consultations, call our team directly for immediate guidance.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="index.html">
+            <img src="public/logo-mark.svg" alt="Compassion Estates logo" />
+            <span><strong>Compassion</strong> Estates</span>
+          </a>
+          <p>Estate sales and liquidation services designed to reduce stress and support families through meaningful transitions.</p>
+        </div>
+
+        <div>
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="sales.html">Upcoming Sales</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li><a href="tel:4042459437">(404) 245-9437</a></li>
+            <li>Cumming, GA 30041</li>
+            <li>Mon–Sat: 9:00 AM–6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> Compassion Estates. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
