@@ -150,10 +150,10 @@ blockquote {
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, var(--warm), #bb6a4c);
+  background: linear-gradient(135deg, #d94b4b, #a92a2a);
   color: #fff;
   border: 1px solid transparent;
-  box-shadow: 0 12px 26px rgba(201, 140, 93, 0.22);
+  box-shadow: 0 12px 26px rgba(217, 75, 75, 0.22);
 }
 
 .hero {

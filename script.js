@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const galleryLink = document.querySelector('a[href="#past-sales-gallery"]');
   const gallerySection = document.getElementById('past-sales-gallery');
   const galleryToggle = document.querySelector('.gallery-toggle');
 
@@ -24,10 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gallerySection.classList.toggle('hidden-gallery', !isOpen);
     gallerySection.classList.toggle('visible-gallery', isOpen);
-
-    if (galleryLink) {
-      galleryLink.setAttribute('aria-expanded', String(isOpen));
-    }
 
     if (galleryToggle) {
       galleryToggle.setAttribute('aria-expanded', String(isOpen));
@@ -41,14 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
       gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-
-  if (galleryLink && gallerySection) {
-    galleryLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      const isVisible = !gallerySection.classList.contains('hidden-gallery');
-      setGalleryState(!isVisible);
-    });
-  }
 
   if (galleryToggle && gallerySection) {
     galleryToggle.addEventListener('click', () => {
