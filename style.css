@@ -561,6 +561,96 @@ blockquote {
   line-height: 1.6;
 }
 
+.sales-page .page-hero {
+  padding: 3.25rem 0 2.5rem;
+}
+
+.sales-page .page-hero.compact {
+  padding-top: 3rem;
+}
+
+.sales-page .narrow {
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: 0 auto 0 1.5rem;
+}
+
+.sales-page .eyebrow {
+  margin-bottom: 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.sales-page .page-hero h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.sales-page .page-hero p {
+  max-width: 650px;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.sales-page .section {
+  padding: 3.5rem 0 3rem;
+}
+
+.sales-page .section-header {
+  width: min(100%, 760px);
+  margin: 0 auto 2rem;
+}
+
+.sales-page .section-header h2 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.sales-page .sales-grid {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.contact-page .page-hero {
+  padding: 3.25rem 0 2.5rem;
+}
+
+.contact-page .page-hero.compact {
+  padding-top: 3rem;
+}
+
+.contact-page .narrow {
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: 0 auto 0 1.5rem;
+}
+
+.contact-page .eyebrow {
+  margin-bottom: 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.contact-page .page-hero h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.contact-page .page-hero p {
+  max-width: 650px;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contact-page .section {
+  padding: 3.5rem 0 3rem;
+}
+
 .timeline {
   display: grid;
   gap: 1.5rem;
