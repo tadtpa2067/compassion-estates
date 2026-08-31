@@ -49,40 +49,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const contactForm = document.querySelector('#contact-form');
-  if (contactForm) {
-    const message = contactForm.querySelector('.form-message');
-
-    contactForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const requiredFields = ['name', 'phone', 'email', 'location', 'timeline', 'description'];
-      let isValid = true;
-
-      requiredFields.forEach((fieldName) => {
-        const field = contactForm.querySelector(`[name="${fieldName}"]`);
-        if (!field || !field.value.trim()) {
-          isValid = false;
-        }
-      });
-
-      const emailField = contactForm.querySelector('[name="email"]');
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailField && !emailPattern.test(emailField.value.trim())) {
-        isValid = false;
-      }
-
-      if (!isValid) {
-        message.textContent = 'Please complete all required fields before submitting your consultation request.';
-        message.classList.add('error');
-        message.classList.remove('success');
-        return;
-      }
-
-      message.textContent = 'Thank you. Your consultation request has been received. A Compassion Estates specialist will reach out shortly.';
-      message.classList.add('success');
-      message.classList.remove('error');
-      contactForm.reset();
-    });
-  }
 });
