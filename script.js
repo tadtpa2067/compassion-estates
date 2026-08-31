@@ -15,6 +15,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const galleryLink = document.querySelector('a[href="#past-sales-gallery"]');
+  const gallerySection = document.getElementById('past-sales-gallery');
+  const galleryToggle = document.querySelector('.gallery-toggle');
+
+  const setGalleryState = (isOpen) => {
+    if (!gallerySection) return;
+
+    gallerySection.classList.toggle('hidden-gallery', !isOpen);
+    gallerySection.classList.toggle('visible-gallery', isOpen);
+
+    if (galleryLink) {
+      galleryLink.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    if (galleryToggle) {
+      galleryToggle.setAttribute('aria-expanded', String(isOpen));
+      const label = galleryToggle.querySelector('.toggle-label');
+      if (label) {
+        label.textContent = isOpen ? 'Close' : 'Open';
+      }
+    }
+
+    if (isOpen) {
+      gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  if (galleryLink && gallerySection) {
+    galleryLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      const isVisible = !gallerySection.classList.contains('hidden-gallery');
+      setGalleryState(!isVisible);
+    });
+  }
+
+  if (galleryToggle && gallerySection) {
+    galleryToggle.addEventListener('click', () => {
+      const isVisible = !gallerySection.classList.contains('hidden-gallery');
+      setGalleryState(!isVisible);
+    });
+  }
+
   const galleryItems = document.querySelectorAll('[data-lightbox]');
   if (galleryItems.length) {
     const lightbox = document.createElement('div');
