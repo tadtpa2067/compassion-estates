@@ -400,8 +400,10 @@ blockquote {
 }
 
 .narrow {
+  width: min(100%, 760px);
   max-width: 760px;
-  text-align: center;
+  margin: 0;
+  text-align: left;
 }
 
 .page-hero h1 {
