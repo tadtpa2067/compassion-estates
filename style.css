@@ -55,7 +55,6 @@ textarea {
   margin: 0 auto;
 }
 
-.section-header,
 .hero-copy-block,
 .two-column > div,
 .testimonial-wrap > div,
@@ -256,9 +255,9 @@ h1, h2, h3, h4 {
 }
 
 .section-header {
-  width: min(100%, 680px);
-  max-width: 680px;
-  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto 2.5rem;
 }
 
 .section-header h2 {
