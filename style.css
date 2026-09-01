@@ -90,7 +90,7 @@ blockquote {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  color: #fff;
+  color: var(--bg);
   font-size: 1.08rem;
   letter-spacing: 0.02em;
 }
@@ -110,7 +110,7 @@ blockquote {
 }
 
 .brand .brand-name {
-  color: #fff;
+  color: var(--bg);
 }
 
 .nav-links {
@@ -120,7 +120,7 @@ blockquote {
 }
 
 .nav-links a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(247, 241, 234, 0.9);
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -129,7 +129,7 @@ blockquote {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #fff;
+  color: var(--bg);
 }
 
 .nav-toggle {
@@ -159,13 +159,13 @@ blockquote {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--gallery-red), var(--gallery-red-deep));
-  color: #fff;
+  color: var(--bg);
   box-shadow: 0 12px 28px rgba(196, 69, 69, 0.22);
 }
 
 .btn-secondary {
   background: linear-gradient(135deg, var(--gallery-red), var(--gallery-red-deep));
-  color: #fff;
+  color: var(--bg);
   border: 1px solid transparent;
   box-shadow: 0 12px 26px rgba(196, 69, 69, 0.22);
 }
@@ -257,7 +257,7 @@ h1, h2, h3, h4 {
   font-size: clamp(2.2rem, 3vw, 3.2rem);
   line-height: 1.1;
   margin: 0 auto;
-  color: #ffffff;
+  color: var(--bg);
   max-width: 760px;
 }
 
@@ -288,8 +288,8 @@ h1, h2, h3, h4 {
 
 .gallery-toggle {
   border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
+  background: var(--bg);
+  color: var(--deep-navy);
   border-radius: 999px;
   padding: 0.8rem 1.2rem;
   font-weight: 700;
@@ -299,7 +299,7 @@ h1, h2, h3, h4 {
 }
 
 .gallery-toggle:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: #f3e9df;
   transform: translateY(-1px);
 }
 
@@ -679,26 +679,31 @@ blockquote {
 .sales-page .narrow {
   width: min(100%, 760px);
   max-width: 760px;
-  margin: 0 auto 0 1.5rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .sales-page .eyebrow {
+  display: block;
   margin-bottom: 0.8rem;
   font-size: 0.75rem;
   letter-spacing: 0.14em;
+  text-align: center;
 }
 
 .sales-page .page-hero h1 {
   font-size: 1.75rem;
   line-height: 1.2;
   margin-bottom: 0.8rem;
+  text-align: center;
 }
 
 .sales-page .page-hero p {
   max-width: 650px;
   font-size: 1.03rem;
   line-height: 1.7;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .sales-page .section {
@@ -732,26 +737,31 @@ blockquote {
 .contact-page .narrow {
   width: min(100%, 760px);
   max-width: 760px;
-  margin: 0 auto 0 1.5rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .contact-page .eyebrow {
+  display: block;
   margin-bottom: 0.8rem;
   font-size: 0.75rem;
   letter-spacing: 0.14em;
+  text-align: center;
 }
 
 .contact-page .page-hero h1 {
   font-size: 1.75rem;
   line-height: 1.2;
   margin-bottom: 0.8rem;
+  text-align: center;
 }
 
 .contact-page .page-hero p {
   max-width: 650px;
   font-size: 1.03rem;
   line-height: 1.7;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .contact-page .section {
