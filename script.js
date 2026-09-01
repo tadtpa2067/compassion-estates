@@ -44,6 +44,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const eventCarousel = document.querySelector('.event-carousel');
+  if (eventCarousel) {
+    const slides = Array.from(eventCarousel.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const prevButton = eventCarousel.querySelector('.carousel-prev');
+    const nextButton = eventCarousel.querySelector('.carousel-next');
+
+    let currentIndex = 0;
+
+    const updateCarousel = (newIndex) => {
+      if (!slides.length) return;
+
+      currentIndex = (newIndex + slides.length) % slides.length;
+
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('is-active', index === currentIndex);
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === currentIndex);
+      });
+    };
+
+    prevButton?.addEventListener('click', () => updateCarousel(currentIndex - 1));
+    nextButton?.addEventListener('click', () => updateCarousel(currentIndex + 1));
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => updateCarousel(index));
+    });
+  }
+
   const galleryItems = document.querySelectorAll('[data-lightbox]');
   if (galleryItems.length) {
     const lightbox = document.createElement('div');
