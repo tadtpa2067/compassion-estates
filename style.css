@@ -400,6 +400,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   padding: 0;
+  grid-column: span 2;
 }
 
 .event-card-header {
@@ -430,11 +431,7 @@ h1, h2, h3, h4 {
 
 .event-carousel {
   position: relative;
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr) 42px;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0;
+  display: block;
 }
 
 .carousel-viewport {
@@ -470,6 +467,9 @@ h1, h2, h3, h4 {
 }
 
 .carousel-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
   border: none;
   background: var(--bg);
   color: var(--deep-navy);
@@ -480,6 +480,15 @@ h1, h2, h3, h4 {
   line-height: 1;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(29, 42, 52, 0.08);
+  transform: translateY(-50%);
+}
+
+.carousel-prev {
+  left: 0.7rem;
+}
+
+.carousel-next {
+  right: 0.7rem;
 }
 
 .carousel-btn:hover {
@@ -1218,6 +1227,10 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
 }
 
 @media (max-width: 700px) {
@@ -1244,7 +1257,8 @@ textarea {
   }
 
   .three-up,
-  .form-row {
+  .form-row,
+  .photo-gallery {
     grid-template-columns: 1fr;
   }
 
