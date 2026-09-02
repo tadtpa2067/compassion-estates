@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
     <meta
       name="description"
       content="Request a compassionate consultation with Compassion Estates for estate sales, downsizing, and liquidation support in Cumming, GA."
@@ -48,37 +51,38 @@
           <div class="contact-panel">
             <p class="eyebrow accent">Get in touch</p>
             <h2>Tell us about your situation.</h2>
-            <form id="contact-form" novalidate>
+            <form id="contact-form" aria-describedby="form-help">
+              <p id="form-help" class="form-help">Complete the form and we will follow up during business hours. For the fastest response, call us directly.</p>
               <div class="form-row">
                 <label>
-                  Name
-                  <input type="text" name="name" placeholder="Your full name" />
+                  Name <span aria-hidden="true">*</span>
+                  <input type="text" name="name" placeholder="Your full name" autocomplete="name" required />
                 </label>
                 <label>
-                  Phone
-                  <input type="tel" name="phone" placeholder="(404) 245-9437" />
+                  Phone <span aria-hidden="true">*</span>
+                  <input type="tel" name="phone" placeholder="(404) 245-9437" autocomplete="tel" required />
                 </label>
               </div>
 
               <div class="form-row">
                 <label>
-                  Email
-                  <input type="email" name="email" placeholder="your@email.com" />
+                  Email <span aria-hidden="true">*</span>
+                  <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required />
                 </label>
                 <label>
-                  Location
-                  <input type="text" name="location" placeholder="Cumming, GA" />
+                  Location <span aria-hidden="true">*</span>
+                  <input type="text" name="location" placeholder="Cumming, GA" autocomplete="address-level2" required />
                 </label>
               </div>
 
               <label>
-                Estimated Timeline
-                <input type="text" name="timeline" placeholder="e.g. Within 2 weeks" />
+                Estimated Timeline <span aria-hidden="true">*</span>
+                <input type="text" name="timeline" placeholder="e.g. Within 2 weeks" required />
               </label>
 
               <label>
-                Estate Needs
-                <textarea name="description" rows="5" placeholder="Please share a brief description of the estate, items, or services needed."></textarea>
+                Estate Needs <span aria-hidden="true">*</span>
+                <textarea name="description" rows="5" placeholder="Please share a brief description of the estate, items, or services needed." required></textarea>
               </label>
 
               <button type="submit" class="btn btn-primary btn-wide">Request a Consultation</button>

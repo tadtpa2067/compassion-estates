@@ -8,10 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (navToggle && navLinks) {
+    const closeNav = () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('is-open');
+    };
+
+    navToggle.setAttribute('aria-controls', 'site-navigation');
+    navLinks.id = 'site-navigation';
+
     navToggle.addEventListener('click', () => {
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', String(!isExpanded));
       navLinks.classList.toggle('is-open');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeNav();
+    });
+    document.addEventListener('click', (event) => {
+      if (!navLinks.contains(event.target) && !navToggle.contains(event.target)) closeNav();
     });
   }
 
@@ -26,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (galleryToggle) {
       galleryToggle.setAttribute('aria-expanded', String(isOpen));
-      const label = galleryToggle.querySelector('.toggle-label');
+        const label = galleryToggle.querySelector('.toggle-label');
       if (label) {
-        label.textContent = isOpen ? 'Close' : 'Open';
+          label.textContent = isOpen ? 'Close Past Sales' : 'View Past Sales';
       }
     }
 
@@ -47,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const eventCarousel = document.querySelector('.event-carousel');
   if (eventCarousel) {
     const slides = Array.from(eventCarousel.querySelectorAll('.carousel-slide'));
-    const dots = Array.from(document.querySelectorAll('.dot'));
+    const dots = Array.from(eventCarousel.querySelectorAll('.dot'));
     const prevButton = eventCarousel.querySelector('.carousel-prev');
     const nextButton = eventCarousel.querySelector('.carousel-next');
 
@@ -60,10 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       slides.forEach((slide, index) => {
         slide.classList.toggle('is-active', index === currentIndex);
+        slide.setAttribute('aria-hidden', String(index !== currentIndex));
       });
 
       dots.forEach((dot, index) => {
         dot.classList.toggle('is-active', index === currentIndex);
+        dot.setAttribute('aria-current', String(index === currentIndex));
       });
     };
 
@@ -73,39 +91,68 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => updateCarousel(index));
     });
+
+    eventCarousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') updateCarousel(currentIndex - 1);
+      if (event.key === 'ArrowRight') updateCarousel(currentIndex + 1);
+    });
+    eventCarousel.tabIndex = 0;
+    updateCarousel(0);
   }
 
   const galleryItems = document.querySelectorAll('[data-lightbox]');
   if (galleryItems.length) {
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Image preview');
+    lightbox.setAttribute('aria-hidden', 'true');
     lightbox.innerHTML = `
       <button class="lightbox-close" aria-label="Close lightbox">×</button>
-      <img src="" alt="Estate sale preview" />
-      <p></p>
+      <figure>
+        <img src="" alt="Estate sale preview" />
+        <figcaption></figcaption>
+      </figure>
     `;
     document.body.appendChild(lightbox);
 
     const lightboxImg = lightbox.querySelector('img');
-    const lightboxCaption = lightbox.querySelector('p');
+    const lightboxCaption = lightbox.querySelector('figcaption');
     const closeButton = lightbox.querySelector('.lightbox-close');
+    let previousFocus;
 
     galleryItems.forEach((item) => {
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
       item.addEventListener('click', () => {
+        previousFocus = document.activeElement;
         lightboxImg.src = item.dataset.lightbox;
         lightboxImg.alt = item.dataset.title || 'Estate sale preview';
         lightboxCaption.textContent = item.dataset.title || '';
         lightbox.classList.add('visible');
+        lightbox.setAttribute('aria-hidden', 'false');
+        closeButton.focus();
+      });
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          item.click();
+        }
       });
     });
 
-    const closeLightbox = () => lightbox.classList.remove('visible');
+    const closeLightbox = () => {
+      lightbox.classList.remove('visible');
+      lightbox.setAttribute('aria-hidden', 'true');
+      if (previousFocus) previousFocus.focus();
+    };
     closeButton.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'Escape' && lightbox.classList.contains('visible')) closeLightbox();
     });
   }
 
@@ -115,34 +162,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     contactForm.addEventListener('submit', (event) => {
       event.preventDefault();
+      const fields = Array.from(contactForm.querySelectorAll('input, textarea'));
+      const invalidField = fields.find((field) => !field.checkValidity());
 
-      const requiredFields = ['name', 'phone', 'email', 'location', 'timeline', 'description'];
-      let isValid = true;
+      fields.forEach((field) => field.setAttribute('aria-invalid', String(!field.checkValidity())));
 
-      requiredFields.forEach((fieldName) => {
-        const field = contactForm.querySelector(`[name="${fieldName}"]`);
-        if (!field || !field.value.trim()) {
-          isValid = false;
-        }
-      });
-
-      const emailField = contactForm.querySelector('[name="email"]');
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailField && !emailPattern.test(emailField.value.trim())) {
-        isValid = false;
-      }
-
-      if (!isValid) {
-        message.textContent = 'Please complete all required fields before submitting your consultation request.';
+      if (invalidField) {
+        message.textContent = 'Please complete the highlighted fields before sending your consultation request.';
         message.classList.add('error');
         message.classList.remove('success');
+        invalidField.focus();
         return;
       }
 
-      message.textContent = 'Thank you. Your consultation request has been received. A Compassion Estates specialist will reach out shortly.';
-      message.classList.add('success');
+      message.textContent = 'Online delivery is not configured yet. Please call (404) 245-9437 so we can respond to your request directly.';
+      message.classList.add('notice');
       message.classList.remove('error');
-      contactForm.reset();
     });
   }
 });

@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
     <meta
       name="description"
       content="Full-service estate sale, staging, and liquidation services in Metro Atlanta and North Georgia. We handle downsizing and relocation transitions with care and professionalism."
@@ -52,6 +55,7 @@
         </button>
 
         <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html" class="active">Home</a>
           <a href="services.html">Services</a>
           <a href="sales.html">Upcoming Sales</a>
           <a class="btn btn-primary" href="contact.html">Schedule a Consultation</a>
@@ -63,10 +67,11 @@
       <section class="hero">
         <div class="container hero-title-wrap">
           <h1>Estate Sales &amp; Liquidation</h1>
+          <p class="hero-lede">Thoughtful estate sale support for families navigating downsizing, relocation, and life transitions across Metro Atlanta and North Georgia.</p>
           <div class="hero-actions hero-actions-title">
-            <a class="btn btn-secondary photo-gallery-link" href="#past-sales-gallery">Photo Gallery</a>
-            <button type="button" class="gallery-toggle" aria-expanded="false" aria-controls="past-sales-gallery">
-              <span class="toggle-label">Open</span>
+            <a class="btn btn-primary" href="contact.html">Schedule a Consultation</a>
+            <button type="button" class="btn btn-secondary gallery-toggle" aria-expanded="false" aria-controls="past-sales-gallery">
+              <span class="toggle-label">View Past Sales</span>
             </button>
           </div>
         </div>
@@ -101,21 +106,21 @@
               <div class="event-carousel" aria-label="August 2026 Estate Sale photo carousel">
                 <button class="carousel-btn carousel-prev" type="button" aria-label="Previous photo">&#8249;</button>
 
-                <div class="carousel-viewport">
+                <div class="carousel-viewport" aria-live="polite">
                   <figure class="carousel-slide is-active">
-                    <img src="images/August%202026-1.jpg" alt="Estate sale display from August 2026 event" />
+                    <img src="images/August%202026-1.jpg" alt="Estate sale display from August 2026 event" loading="lazy" decoding="async" data-lightbox="images/August%202026-1.jpg" data-title="Estate sale display from August 2026 event" />
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/August%202026-2.jpg" alt="Furniture and home goods displayed during the August 2026 estate sale" />
+                    <img src="images/August%202026-2.jpg" alt="Furniture and home goods displayed during the August 2026 estate sale" loading="lazy" decoding="async" data-lightbox="images/August%202026-2.jpg" data-title="Furniture and home goods displayed during the August 2026 estate sale" />
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/August%202026-3.jpg" alt="Home staging and item presentation from the August 2026 estate sale" />
+                    <img src="images/August%202026-3.jpg" alt="Home staging and item presentation from the August 2026 estate sale" loading="lazy" decoding="async" data-lightbox="images/August%202026-3.jpg" data-title="Home staging and item presentation from the August 2026 estate sale" />
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/August%202026-4.jpg" alt="Buyers browsing estate sale merchandise from the August 2026 event" />
+                    <img src="images/August%202026-4.jpg" alt="Buyers browsing estate sale merchandise from the August 2026 event" loading="lazy" decoding="async" data-lightbox="images/August%202026-4.jpg" data-title="Buyers browsing estate sale merchandise from the August 2026 event" />
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/August%202026.jpg" alt="Garage and shoppers at the August 2026 estate sale event" />
+                    <img src="images/August%202026.jpg" alt="Garage and shoppers at the August 2026 estate sale event" loading="lazy" decoding="async" data-lightbox="images/August%202026.jpg" data-title="Garage and shoppers at the August 2026 estate sale event" />
                   </figure>
                 </div>
 
@@ -123,31 +128,19 @@
               </div>
 
               <div class="carousel-dots" aria-label="Photo navigation">
-                <button class="dot is-active" type="button" aria-label="View photo 1"></button>
-                <button class="dot" type="button" aria-label="View photo 2"></button>
-                <button class="dot" type="button" aria-label="View photo 3"></button>
-                <button class="dot" type="button" aria-label="View photo 4"></button>
-                <button class="dot" type="button" aria-label="View photo 5"></button>
+                <button class="dot is-active" type="button" aria-label="View photo 1" aria-current="true"></button>
+                <button class="dot" type="button" aria-label="View photo 2" aria-current="false"></button>
+                <button class="dot" type="button" aria-label="View photo 3" aria-current="false"></button>
+                <button class="dot" type="button" aria-label="View photo 4" aria-current="false"></button>
+                <button class="dot" type="button" aria-label="View photo 5" aria-current="false"></button>
               </div>
             </figure>
 
-            <figure class="gallery-item placeholder-item">
-              <div class="placeholder-card">
-                <span>Future Event</span>
-              </div>
-            </figure>
-
-            <figure class="gallery-item placeholder-item">
-              <div class="placeholder-card">
-                <span>Future Event</span>
-              </div>
-            </figure>
-
-            <figure class="gallery-item placeholder-item">
-              <div class="placeholder-card">
-                <span>Future Event</span>
-              </div>
-            </figure>
+          </div>
+          <div class="gallery-empty-state">
+            <h3>More event highlights are on the way.</h3>
+            <p>Visit our upcoming sales page or contact us for the next event schedule.</p>
+            <a class="btn btn-primary" href="sales.html">See Upcoming Sales</a>
           </div>
         </div>
       </section>
@@ -250,9 +243,19 @@
         <div>
           <h3>Navigation</h3>
           <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="sales.html">Upcoming Sales</a></li>
             <li><a class="btn btn-primary" href="contact.html">Schedule a Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li><a href="tel:4042459437">(404) 245-9437</a></li>
+            <li>Cumming, GA 30041</li>
+            <li>Mon–Sat: 9:00 AM–6:00 PM</li>
           </ul>
         </div>
 
