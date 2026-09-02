@@ -98,11 +98,10 @@ blockquote {
 .brand img {
   width: 42px;
   height: 42px;
-  border: 2px solid var(--gallery-red);
+  border: 0;
   border-radius: 10px;
-  padding: 2px;
-  background: rgba(217, 75, 75, 0.08);
-  box-shadow: 0 0 0 1px rgba(217, 75, 75, 0.12);
+  object-fit: cover;
+  background: var(--bg);
 }
 
 .brand strong {
@@ -334,20 +333,37 @@ h1, h2, h3, h4 {
 
 .hero-photo-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1.43fr) minmax(0, 0.75fr);
   gap: 1.25rem;
-  align-items: start;
+  align-items: stretch;
   width: 100%;
+}
+
+.hero-image-frame {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.flyer-frame {
+  aspect-ratio: 1.43 / 1;
+}
+
+.owner-frame {
+  aspect-ratio: 0.75 / 1;
 }
 
 .hero-visual img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 560px;
+  height: 100%;
   object-fit: contain;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-image {
+  object-fit: contain;
+  background: #fffdfb;
 }
 
 .section {
@@ -1202,9 +1218,6 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero-visual img {
-    height: 440px;
-  }
 }
 
 @media (max-width: 700px) {
